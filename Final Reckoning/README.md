@@ -1,1 +1,1 @@
-<img src="https://wizz.s-ul.eu/eH8z2goY" width="500" alt="Final Reckoning">
+<img src="./images/Final Reckoning.png" width="500" alt="Final Reckoning">
