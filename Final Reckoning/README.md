@@ -1,1 +1,0 @@
-<img src="./images/Final Reckoning.png" width="500" alt="Final Reckoning">
