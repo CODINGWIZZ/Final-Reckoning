@@ -81,6 +81,7 @@ namespace StarterAssets
 
         [SerializeField] private GameObject HeadPosition;
         [SerializeField] private bool Crouch = false;
+        [SerializeField] private bool CrouchDisable = false;
         [SerializeField] private bool CanStand; 
 
         // cinemachine
@@ -201,7 +202,7 @@ namespace StarterAssets
                 if(_hasAnimator) {
                     if(!Crouch) {
                         Crouch = true;
-                        JumpHeight = 0f;
+                        JumpHeight = 0;
                         
                         _controller.height = 1.4f;
                         _controller.center = new Vector3(0, 0.73f, 0);
@@ -220,6 +221,7 @@ namespace StarterAssets
                     _controller.radius = 0.28f;
 
                     _animator.SetBool(_animIDCrouch, false);
+                    CrouchDisable = true;
                 }
             }
         } 
@@ -353,6 +355,8 @@ namespace StarterAssets
                     _verticalVelocity = -2f;
                 }
 
+                if(CrouchDisable) _input.jump = false;
+
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f && Crouch == false)
                 {
@@ -364,6 +368,8 @@ namespace StarterAssets
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
+                } else {
+                    CrouchDisable = false;
                 }
 
                 // jump timeout
