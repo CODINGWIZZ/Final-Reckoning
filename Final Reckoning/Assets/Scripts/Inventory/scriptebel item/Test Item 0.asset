@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579b1405cfc3ea642b907a632a047d7b, type: 3}
+  m_Name: Test Item 0
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  desplayName: "bl\xE5"
+  description: "Detta \xE4r ett testitem det kann inte g\xF6ra n\xE5got och \xE4r
+    totalt v\xE4rdel\xF6st men om du hittar detta vat du att jag gl\xF6mde ta bort
+    den (If you ar not from sweden god luck figuring out what it stands above) ;P"
+  ID: 2
+  MaxStackSize: 3
