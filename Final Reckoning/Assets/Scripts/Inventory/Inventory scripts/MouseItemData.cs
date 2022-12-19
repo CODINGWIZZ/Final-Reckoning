@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro.Examples;
 using TMPro;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 
 public class MouseItemData : MonoBehaviour
 {
     public Image ItemSprite;
-    public TextMeshProFloatingText TextMeshProFloatingText;
+    public TextMeshProUGUI ItemCount;
+
+    private void Awake()
+    {
+        ItemSprite.color = Color.clear;
+        ItemCount.text = "";
+    }
 }
