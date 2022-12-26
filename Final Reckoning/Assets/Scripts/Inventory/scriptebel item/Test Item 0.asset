@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b1405cfc3ea642b907a632a047d7b, type: 3}
   m_Name: Test Item 0
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c887ed2a931c29040bc544cd8c546e9f, type: 3}
   desplayName: "bl\xE5"
   description: "Detta \xE4r ett testitem det kann inte g\xF6ra n\xE5got och \xE4r
     totalt v\xE4rdel\xF6st men om du hittar detta vat du att jag gl\xF6mde ta bort
