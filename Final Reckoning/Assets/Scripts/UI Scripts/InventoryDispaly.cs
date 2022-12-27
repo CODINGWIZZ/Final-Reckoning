@@ -31,8 +31,32 @@ public abstract class InventoryDispaly : MonoBehaviour
         }
     }
 
-    public void SlotClick(InventorySlot_UI clicdSlot)
+    public void SlotClick(InventorySlot_UI clickedUISlot)
     {
-        Debug.Log("Slot clickt");
+        //click slot has item & mouse has no item  -> pick upp item
+
+        if(clickedUISlot.AssingedInventorySlot.ItamDats != null && mouseInventoryItem.AssignedInventorySlot.ItamDats == null)
+        {
+            // click + schift -> split stack
+
+            mouseInventoryItem.updateMouseSlot(clickedUISlot.AssingedInventorySlot);
+            clickedUISlot.CleatSlot();
+            return;
+        }
+
+        //click slot has no item & mouse has item -> plase item
+
+        if(clickedUISlot.AssingedInventorySlot.ItamDats == null && mouseInventoryItem.AssignedInventorySlot.ItamDats != null)
+        {
+            clickedUISlot.AssingedInventorySlot.AssignItemSlot(mouseInventoryItem.AssignedInventorySlot);
+            clickedUISlot.UpdateUISlot();
+
+            mouseInventoryItem.ClearSlot();
+        }
+
+        // click slot has item & mouse has item -> ...
+        // same item -> combind
+        // slot amount + mouse amoun > max stack sise -> take from mouse
+        //diftent item -> swap
     }
 }

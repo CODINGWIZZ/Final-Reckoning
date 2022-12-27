@@ -23,6 +23,23 @@ public class InventorySlot_UI : MonoBehaviour
         ParentDispaly = transform.parent.GetComponent<InventoryDispaly>();
     }
 
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.I))
+        {
+            if (Cursor.visible == true)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
+    }
+
     public void init(InventorySlot slot)
     {
         assingedInventorySlot = slot;
