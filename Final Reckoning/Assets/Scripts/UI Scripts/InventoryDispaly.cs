@@ -33,30 +33,106 @@ public abstract class InventoryDispaly : MonoBehaviour
 
     public void SlotClick(InventorySlot_UI clickedUISlot)
     {
-        //click slot has item & mouse has no item  -> pick upp item
+        //is schift down
+        bool isSchiftPressed = Keyboard.current.leftShiftKey.isPressed;
 
+        //click slot has item & mouse has no item 
         if(clickedUISlot.AssingedInventorySlot.ItamDats != null && mouseInventoryItem.AssignedInventorySlot.ItamDats == null)
         {
-            // click + schift -> split stack
-
-            mouseInventoryItem.updateMouseSlot(clickedUISlot.AssingedInventorySlot);
-            clickedUISlot.CleatSlot();
-            return;
+            //if shift is down -> split stack
+            if (isSchiftPressed && clickedUISlot.AssingedInventorySlot.SplitStack(out InventorySlot halfStackSlot))
+            {
+                mouseInventoryItem.updateMouseSlot(halfStackSlot);
+                clickedUISlot.UpdateUISlot();
+                return;
+            }
+            //if shift is up ->pick up item
+            else
+            {
+                mouseInventoryItem.updateMouseSlot(clickedUISlot.AssingedInventorySlot);
+                clickedUISlot.CleatSlot();
+                return;
+            }
         }
 
         //click slot has no item & mouse has item -> plase item
-
         if(clickedUISlot.AssingedInventorySlot.ItamDats == null && mouseInventoryItem.AssignedInventorySlot.ItamDats != null)
         {
             clickedUISlot.AssingedInventorySlot.AssignItemSlot(mouseInventoryItem.AssignedInventorySlot);
             clickedUISlot.UpdateUISlot();
 
             mouseInventoryItem.ClearSlot();
+            return;
         }
 
+        
+        
+
         // click slot has item & mouse has item -> ...
-        // same item -> combind
-        // slot amount + mouse amoun > max stack sise -> take from mouse
-        //diftent item -> swap
+        if (clickedUISlot.AssingedInventorySlot.ItamDats != null && mouseInventoryItem.AssignedInventorySlot.ItamDats != null) 
+        {
+            
+
+            //check if muse item = clickt item
+            bool isSameItem = clickedUISlot.AssingedInventorySlot.ItamDats == mouseInventoryItem.AssignedInventorySlot.ItamDats;
+
+            // same item -> combind
+            if (isSameItem && clickedUISlot.AssingedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize))
+            {
+                clickedUISlot.AssingedInventorySlot.AssignItemSlot(mouseInventoryItem.AssignedInventorySlot);
+                clickedUISlot.UpdateUISlot();
+
+                mouseInventoryItem.ClearSlot();
+                return;
+            }
+
+            // slot amount + mouse amoun > max stack sise -> take from mouse
+            else if (isSameItem && 
+                !clickedUISlot.AssingedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize, out int leftInStack))
+            {
+                //if stack = full -> swap
+                if (leftInStack < 1)
+                {
+                    SwapSlots(clickedUISlot);
+                    return;
+                }
+
+                //transfer fram mous item to clickt item untill stack is full
+                else
+                {
+                    int remainingOnMouse = mouseInventoryItem.AssignedInventorySlot.StackSize - leftInStack;
+                    clickedUISlot.AssingedInventorySlot.AddToStack(leftInStack);
+                    clickedUISlot.UpdateUISlot();
+
+                    var newItem = new InventorySlot(mouseInventoryItem.AssignedInventorySlot.ItamDats, remainingOnMouse);
+                    mouseInventoryItem.ClearSlot();
+                    mouseInventoryItem.updateMouseSlot(newItem);
+                    return;
+                }
+
+            }
+
+            //diftent item -> swap
+            else if (!isSameItem)
+            {
+                SwapSlots(clickedUISlot);
+                return;
+            }
+
+        }
+    }
+
+
+    //swap [create a clon of mouse item. replases mouse item whith clickt item. replases the clickt item whith the clond item.]
+    private void SwapSlots(InventorySlot_UI clicktUISlot)
+    {
+        var cloneSlot = new InventorySlot(mouseInventoryItem.AssignedInventorySlot.ItamDats, mouseInventoryItem.AssignedInventorySlot.StackSize);
+        mouseInventoryItem.ClearSlot();
+
+        mouseInventoryItem.updateMouseSlot(clicktUISlot.AssingedInventorySlot);
+
+        clicktUISlot.CleatSlot();
+        clicktUISlot.AssingedInventorySlot.AssignItemSlot(cloneSlot);
+        clicktUISlot.UpdateUISlot();
     }
 }
