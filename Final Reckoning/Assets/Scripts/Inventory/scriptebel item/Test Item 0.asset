@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b1405cfc3ea642b907a632a047d7b, type: 3}
   m_Name: Test Item 0
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  desplayName: "bl\xE5"
-  description: "Detta \xE4r ett testitem det kann inte g\xF6ra n\xE5got och \xE4r
-    totalt v\xE4rdel\xF6st men om du hittar detta vat du att jag gl\xF6mde ta bort
-    den (If you ar not from sweden god luck figuring out what it stands above) ;P"
+  icon: {fileID: 21300000, guid: 1511aa801ff882d448a42d149627d86f, type: 3}
+  desplayName: HP potions
+  description: "detta \xE4r en test potion"
   ID: 2
   MaxStackSize: 3
