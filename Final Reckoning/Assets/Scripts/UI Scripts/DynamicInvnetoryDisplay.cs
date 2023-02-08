@@ -7,7 +7,7 @@ public class DynamicInvnetoryDisplay : InventoryDispaly
 {
     [SerializeField] protected InventorySlot_UI slotPrefab;
     protected override void Start()
-    { 
+    {
         base.Start(); 
     }
 

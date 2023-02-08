@@ -10,7 +10,8 @@ public class InvnetoryUIControler : MonoBehaviour
 
     private void Awake()
     {
-        chestPanal.gameObject.SetActive(false); 
+        chestPanal.gameObject.SetActive(false);
+        playerBackpackPanal.gameObject.SetActive(false);
     }
 
     private void OnEnable()
