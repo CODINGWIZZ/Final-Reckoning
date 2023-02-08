@@ -15,7 +15,7 @@ public class StaticInventoryDesplay : InventoryDispaly
 
         if (inventoryHolder != null)
         {
-            inventorySystem = inventoryHolder.InventorySystem;
+            inventorySystem = inventoryHolder.PraimarInvnetorySystem;
             inventorySystem.OnInventorySlotChanged += UpdateSlot;
         }
         else

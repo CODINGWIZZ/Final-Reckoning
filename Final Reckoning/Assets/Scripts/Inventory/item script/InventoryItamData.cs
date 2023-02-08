@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// scriptebel objeckt
+/// defines wath is an item
+/// can hav diftent propertis (armor, potion, etc)
+/// 
+/// </summary>
+
 [CreateAssetMenu(menuName = "Inventory System/Inventory Item ")]
 public class InventoryItamData : ScriptableObject
 {

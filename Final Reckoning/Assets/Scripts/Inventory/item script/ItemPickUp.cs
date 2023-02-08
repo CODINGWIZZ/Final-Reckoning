@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class ItemPickUp : MonoBehaviour
 {
-    public float pickUpRadius = 1f;
+    public float pickUpRadius;
     public InventoryItamData ItemData;
 
     private SphereCollider myCollider;
@@ -19,10 +19,11 @@ public class ItemPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var inventory = other.transform.GetComponent<InventoryHolder>();
-        if (!inventory) return;
+        var inventory = other.transform.GetComponent<PlayerInventoryHolder>();
+       
+         if (!inventory) return;
 
-        if (inventory.InventorySystem.AddToInventory(ItemData, 1))
+        if (inventory.AddToInventory(ItemData, 1))
         {
             Destroy(this.gameObject);
         }
