@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
+
 [System.Serializable]
 public class InventorySlot
 {
     [SerializeField] private InventoryItamData itemData;
     [SerializeField] private int stackSize;
 
-    public InventoryItamData ItamDats => itemData;
+    public InventoryItamData ItamData => itemData;
     public int StackSize => stackSize;
 
     public InventorySlot(InventoryItamData source, int amoaunt)
@@ -30,7 +34,7 @@ public class InventorySlot
 
     public void AssignItemSlot(InventorySlot invSlot)
     {
-        if(itemData == invSlot.ItamDats)
+        if(itemData == invSlot.ItamData)
         {
             AddToStack(invSlot.stackSize);
         }

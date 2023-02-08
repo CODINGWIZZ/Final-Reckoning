@@ -37,8 +37,9 @@ public abstract class InventoryDispaly : MonoBehaviour
         bool isSchiftPressed = Keyboard.current.leftShiftKey.isPressed;
 
         //click slot has item & mouse has no item 
-        if(clickedUISlot.AssingedInventorySlot.ItamDats != null && mouseInventoryItem.AssignedInventorySlot.ItamDats == null)
+        if(clickedUISlot.AssingedInventorySlot.ItamData != null && mouseInventoryItem.AssignedInventorySlot.ItamData == null)
         {
+
             //if shift is down -> split stack
             if (isSchiftPressed && clickedUISlot.AssingedInventorySlot.SplitStack(out InventorySlot halfStackSlot))
             {
@@ -56,7 +57,7 @@ public abstract class InventoryDispaly : MonoBehaviour
         }
 
         //click slot has no item & mouse has item -> plase item
-        if(clickedUISlot.AssingedInventorySlot.ItamDats == null && mouseInventoryItem.AssignedInventorySlot.ItamDats != null)
+        if(clickedUISlot.AssingedInventorySlot.ItamData == null && mouseInventoryItem.AssignedInventorySlot.ItamData != null)
         {
             clickedUISlot.AssingedInventorySlot.AssignItemSlot(mouseInventoryItem.AssignedInventorySlot);
             clickedUISlot.UpdateUISlot();
@@ -69,12 +70,12 @@ public abstract class InventoryDispaly : MonoBehaviour
         
 
         // click slot has item & mouse has item -> ...
-        if (clickedUISlot.AssingedInventorySlot.ItamDats != null && mouseInventoryItem.AssignedInventorySlot.ItamDats != null) 
+        if (clickedUISlot.AssingedInventorySlot.ItamData != null && mouseInventoryItem.AssignedInventorySlot.ItamData != null) 
         {
             
 
             //check if muse item = clickt item
-            bool isSameItem = clickedUISlot.AssingedInventorySlot.ItamDats == mouseInventoryItem.AssignedInventorySlot.ItamDats;
+            bool isSameItem = clickedUISlot.AssingedInventorySlot.ItamData == mouseInventoryItem.AssignedInventorySlot.ItamData;
 
             // same item -> combind
             if (isSameItem && clickedUISlot.AssingedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize))
@@ -104,7 +105,7 @@ public abstract class InventoryDispaly : MonoBehaviour
                     clickedUISlot.AssingedInventorySlot.AddToStack(leftInStack);
                     clickedUISlot.UpdateUISlot();
 
-                    var newItem = new InventorySlot(mouseInventoryItem.AssignedInventorySlot.ItamDats, remainingOnMouse);
+                    var newItem = new InventorySlot(mouseInventoryItem.AssignedInventorySlot.ItamData, remainingOnMouse);
                     mouseInventoryItem.ClearSlot();
                     mouseInventoryItem.updateMouseSlot(newItem);
                     return;
@@ -126,7 +127,7 @@ public abstract class InventoryDispaly : MonoBehaviour
     //swap [create a clon of mouse item. replases mouse item whith clickt item. replases the clickt item whith the clond item.]
     private void SwapSlots(InventorySlot_UI clicktUISlot)
     {
-        var cloneSlot = new InventorySlot(mouseInventoryItem.AssignedInventorySlot.ItamDats, mouseInventoryItem.AssignedInventorySlot.StackSize);
+        var cloneSlot = new InventorySlot(mouseInventoryItem.AssignedInventorySlot.ItamData, mouseInventoryItem.AssignedInventorySlot.StackSize);
         mouseInventoryItem.ClearSlot();
 
         mouseInventoryItem.updateMouseSlot(clicktUISlot.AssingedInventorySlot);

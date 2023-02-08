@@ -51,14 +51,14 @@ public class InventorySystem
 
     public bool ContainsItem(InventoryItamData itemToAdd, out List<InventorySlot> inventorySlot)
     {
-        inventorySlot = inventorySlots.Where(i => i.ItamDats == itemToAdd).ToList();
+        inventorySlot = inventorySlots.Where(i => i.ItamData == itemToAdd).ToList();
         Debug.Log(inventorySlot.Count);
         return inventorySlot == null ? false : true;
     }
 
     public bool HasFreeSlot(out InventorySlot freeSlot)
     {
-        freeSlot = InventorySlots.FirstOrDefault(i => i.ItamDats == null);
+        freeSlot = InventorySlots.FirstOrDefault(i => i.ItamData == null);
         return freeSlot == null ? false : true;
     }
 }

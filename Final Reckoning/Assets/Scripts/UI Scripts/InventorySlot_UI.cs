@@ -17,6 +17,8 @@ public class InventorySlot_UI : MonoBehaviour
     {
         CleatSlot();
 
+        //itemSprite.preserveAspect = true;
+
         button = GetComponent<Button>();
         button?.onClick.AddListener(OnUISlotClick);
 
@@ -48,9 +50,9 @@ public class InventorySlot_UI : MonoBehaviour
 
     public void UpdateUISlot(InventorySlot slot)
     {
-        if ( slot.ItamDats != null)
+        if ( slot.ItamData != null)
         {
-            itemSprite.sprite = slot.ItamDats.icon;
+            itemSprite.sprite = slot.ItamData.icon;
             itemSprite.color = Color.white;
 
             if (slot.StackSize > 1)

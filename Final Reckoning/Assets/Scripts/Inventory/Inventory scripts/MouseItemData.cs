@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
 
+
 public class MouseItemData : MonoBehaviour
 {
     public Image ItemSprite;
@@ -15,20 +16,26 @@ public class MouseItemData : MonoBehaviour
 
     private void Awake()
     {
+        //ItemSprite.preserveAspect = true;
         ItemSprite.color = Color.clear;
         ItemCount.text = "";
+
+    }
+    private void Start()
+    {
+        
     }
     public void updateMouseSlot(InventorySlot invSlot)
     {
         AssignedInventorySlot.AssignItemSlot(invSlot);
-        ItemSprite.sprite = invSlot.ItamDats.icon;
+        ItemSprite.sprite = invSlot.ItamData.icon;
         ItemCount.text = invSlot.StackSize.ToString();
         ItemSprite.color = Color.white;
     }
 
     private void Update()
     {
-        if(AssignedInventorySlot.ItamDats != null)
+        if(AssignedInventorySlot.ItamData != null)
         {
             transform.position = Mouse.current.position.ReadValue();
             if(Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUIObjeckt())
