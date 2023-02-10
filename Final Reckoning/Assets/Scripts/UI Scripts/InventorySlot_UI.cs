@@ -17,7 +17,7 @@ public class InventorySlot_UI : MonoBehaviour
     {
         CleatSlot();
 
-        //itemSprite.preserveAspect = true;
+        itemSprite.preserveAspect = true;
 
         button = GetComponent<Button>();
         button?.onClick.AddListener(OnUISlotClick);
