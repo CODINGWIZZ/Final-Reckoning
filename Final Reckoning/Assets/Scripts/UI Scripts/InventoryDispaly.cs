@@ -9,6 +9,7 @@ public abstract class InventoryDispaly : MonoBehaviour
     MouseItemData mouseInventoryItem;
     protected InventorySystem inventorySystem;
     protected Dictionary<InventorySlot_UI, InventorySlot> slotDictionary;
+    protected MouseItemData mouseItemData;
 
 
     public InventorySystem InventorySystem => inventorySystem;
@@ -17,7 +18,7 @@ public abstract class InventoryDispaly : MonoBehaviour
 
     protected virtual void Start()
     {
-
+        
     }
 
     protected virtual void UpdateSlot(InventorySlot updateSlot)

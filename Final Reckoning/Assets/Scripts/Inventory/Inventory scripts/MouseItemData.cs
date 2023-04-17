@@ -14,33 +14,71 @@ public class MouseItemData : MonoBehaviour
     public TextMeshProUGUI ItemCount;
     public InventorySlot AssignedInventorySlot;
 
+    public float dropOffcet;
+    public float lift;
+    public float dropforce;
+
+    public Transform _playerTransform;
+
+    public GameObject dropt;
+
+    private Rigidbody rb;
+
     private void Awake()
     {
-        //ItemSprite.preserveAspect = true;
+        ItemSprite.preserveAspect = true;
         ItemSprite.color = Color.clear;
         ItemCount.text = "";
 
+        
+
+    _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if(_playerTransform == null)
+        {
+            Debug.Log("player not found");
+        }
     }
+
+
     private void Start()
     {
-        
     }
     public void updateMouseSlot(InventorySlot invSlot)
     {
         AssignedInventorySlot.AssignItemSlot(invSlot);
-        ItemSprite.sprite = invSlot.ItamData.icon;
-        ItemCount.text = invSlot.StackSize.ToString();
+        updateMouseSlot();
+    }
+    public void updateMouseSlot()
+    {   
+        ItemSprite.sprite = AssignedInventorySlot.ItamData.icon;
+        ItemCount.text = AssignedInventorySlot.StackSize.ToString();
         ItemSprite.color = Color.white;
     }
 
     private void Update()
     {
-        if(AssignedInventorySlot.ItamData != null)
+        if (AssignedInventorySlot.ItamData != null)
         {
             transform.position = Mouse.current.position.ReadValue();
             if(Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUIObjeckt())
-            {
-                ClearSlot();
+            {   
+                if (AssignedInventorySlot.ItamData.itemPrefab != null)
+                {
+                    dropt = Instantiate(AssignedInventorySlot.ItamData.itemPrefab, _playerTransform.position + _playerTransform.forward * dropOffcet + _playerTransform.up + _playerTransform.up * lift, Quaternion.identity);
+                    rb = dropt.gameObject.GetComponent<Rigidbody>();
+                    dropt.transform.rotation = _playerTransform.rotation;
+                    rb.AddForce(dropt.transform.forward * dropforce * Time.deltaTime + dropt.transform.up * dropforce * Time.deltaTime, ForceMode.Acceleration);
+                }
+
+                if (AssignedInventorySlot.StackSize > 1)
+                {
+                    AssignedInventorySlot.AddToStack(-1);
+                    updateMouseSlot();
+                }
+                else
+                {
+                    ClearSlot();
+                }
             }
         }
     }
@@ -60,5 +98,10 @@ public class MouseItemData : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(enventDataCurrentPosition, results);
         return results.Count > 0;
+    }
+
+    public void closestItem()
+    {
+        
     }
 }
