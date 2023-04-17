@@ -57,25 +57,10 @@ public class ProgresBar : MonoBehaviour
         {
             if (stats.hp < stats.maxHp)
             {
-                /*if( stats.reganHpColdown > 0)
-                {
-                    stats.reganHpColdown -= 1 * Time.deltaTime;
-                }
-                if (stats.reganHpColdown <= 0 && stats.hp != stats.maxHp)
-                {
-                    if (stats.hp + stats.reganHpAmaunt > stats.maxHp)
-                    {
-                        stats.hp = stats.maxHp;
-                    }
-                    else
-                    {
-                        stats.hp += stats.reganHpAmaunt;
-                    }
-                }*/
                 stats.reganHpColdown = delay(stats.reganHpColdown);
                 if (stats.reganHpColdown <= 0)
                 {
-                    stats.hp = heal(stats.hp, stats.reganHpAmaunt, stats.maxHp);
+                    stats.hp = regai(stats.hp, stats.reganHpAmaunt, stats.maxHp);
                 }
             }
         }
@@ -83,18 +68,24 @@ public class ProgresBar : MonoBehaviour
         {
             if ( stats.mana < stats.maxMana)
             {
-               
-                stats.mana += stats.reganMpDelay;
+                stats.regenManaColdown = delay(stats.regenManaColdown);
+                if (stats.regenManaColdown <= 0)
+                {
+                    stats.mana = regai(stats.mana, stats.regenStaminaAmount, stats.maxMana);
+                }
             }
         }
         if (typ.ToLower() == "stamina")
         {
             if (stats.stamina < stats.maxStamina)
             {
-                
-                stats.stamina += stats.regenStaminaAmount;
+                stats.regenStaminaColdown = delay(stats.regenStaminaColdown);
+                if(stats.regenStaminaColdown <= 0)
+                {
+                    stats.stamina = regai(stats.stamina, stats.regenStaminaAmount, stats.maxStamina);
+                }
             }
-            if (stats.stamina == stats.maxStamina)
+            if (stats.stamina >= stats.maxStamina)
             {
                 canvas.enabled = false;
             }
@@ -114,7 +105,7 @@ public class ProgresBar : MonoBehaviour
         return wait;
     }
 
-    float heal(float regain, float regainAmount, float max)
+    float regai (float regain, float regainAmount, float max)
     {
         if(regain <= max)
         {
