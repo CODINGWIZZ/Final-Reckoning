@@ -84,13 +84,15 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        RaycastMagic magic;
+
         [SerializeField] private GameObject HeadPosition;
         [SerializeField] private bool Crouch = false;
         [SerializeField] private bool CrouchDisable = false;
         [SerializeField] private bool magicAttack = false;
         [SerializeField] private bool magicAttackDisable = false;
         [SerializeField] private bool MainCharacterDead = false;
-        [SerializeField] private bool CanStand; 
+        [SerializeField] private bool CanStand;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -125,6 +127,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        private bool _rotateOnMove = true;
 
         private const float _threshold = 0.01f;
 
@@ -166,7 +169,6 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
             _playerInput = GetComponent<PlayerInput>();
 #else
-			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
             SprintSpeed = MoveSpeed * SprintPercentage;
@@ -192,6 +194,11 @@ namespace StarterAssets
             MainCharacterDeath();
 
             UpdateSprintSpeed();
+
+            // if(Menu.menuVisible == false) {
+                // Menu.menuVisible = !Menu.menuVisible;
+                // menu.SetActive(Menu.menuVisible);
+            // }
         }
 
         private void LateUpdate()
@@ -305,7 +312,7 @@ namespace StarterAssets
                 CanStand = true;
             }
 
-            if(Input.GetKeyDown(KeyCode.Mouse1)) {
+            if(Input.GetKeyDown(KeyCode.L)) {
                 if(_hasAnimator) {
                     if(!magicAttack) {
                         magicAttack = true;
@@ -413,6 +420,10 @@ namespace StarterAssets
                                   _mainCamera.transform.eulerAngles.y;
                 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                     RotationSmoothTime);
+
+                if(_rotateOnMove) {
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                }
 
                 // rotate to face input direction relative to camera position
                 if(!MainCharacterDead) transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
@@ -545,6 +556,14 @@ namespace StarterAssets
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
+        }
+
+        public void SetSensitivity(float newSensitivity) {
+            Sensitivity = newSensitivity;
+        }
+
+        public void SetRotateOnMove(bool newRotateOnMove) {
+            _rotateOnMove = newRotateOnMove;
         }
     }
 }
