@@ -13,17 +13,18 @@ public class Stats : MonoBehaviour
 
     public float mana;
     public float maxMana;
-    public float reganMpDelay;
-    public float regenMpAmaundt;
-    public float regenMpColdown;
-    public bool regenMp;
+    public float reganManaDelay;
+    public float regenManaAmaundt;
+    public float regenManaColdown;
+    public bool regenMana;
 
     public float stamina;
     public float maxStamina;
     public float reganStaminaDelay;
     public float regenStaminaAmount;
-    public int regenStaminaColdown;
+    public float regenStaminaColdown;
     public bool regenStamina;
+    public float staminaDrain;
 
     public float xp;
     public float nextlevel;
