@@ -66,7 +66,7 @@ public class EnemyView : MonoBehaviour
                 if (!Physics.SphereCast(enemyTransform.position, viewRadius, dirToTarget, out hit, dstToTarget, obstecalMask))
                 {
                     visebelTarget.Add(targert);
-                    targetPos = new Vector3(target.position.x, 0, target.position.z);
+                    targetPos = new Vector3(target.position.x, target.position.y, target.position.z);
                     seeTarget = true;
                 }
             }
