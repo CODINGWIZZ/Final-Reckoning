@@ -71,7 +71,7 @@ public class ProgresBar : MonoBehaviour
                 stats.regenManaColdown = delay(stats.regenManaColdown);
                 if (stats.regenManaColdown <= 0)
                 {
-                    stats.mana = regai(stats.mana, stats.regenManaColdown, stats.maxMana);
+                    stats.mana = regai(stats.mana, stats.regenStaminaAmount, stats.maxMana);
                 }
             }
         }
@@ -82,7 +82,7 @@ public class ProgresBar : MonoBehaviour
                 stats.regenStaminaColdown = delay(stats.regenStaminaColdown);
                 if(stats.regenStaminaColdown <= 0)
                 {
-                    stats.stamina = regai(stats.stamina, stats.regenStaminaColdown, stats.maxStamina);
+                    stats.stamina = regai(stats.stamina, stats.regenStaminaAmount, stats.maxStamina);
                 }
             }
             if (stats.stamina >= stats.maxStamina)

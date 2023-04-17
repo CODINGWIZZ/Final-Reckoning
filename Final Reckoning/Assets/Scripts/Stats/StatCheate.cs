@@ -23,14 +23,14 @@ public class StatCheate : MonoBehaviour
     {
         if (type.ToLower() == "hp")
         {
-            text.text = stats.hp + "/" + stats.maxHp;
+            text.text = Mathf.Round(stats.hp) + "/" + stats.maxHp;
             text.textStyle = TMP_Style.NormalStyle;
             text.fontStyle = FontStyles.Normal;
             text.color = Color.black;
         }
         else if (type.ToLower() == "mp")
         {
-            text.text = stats.mana + "/" + stats.maxMana;
+            text.text = Mathf.Round(stats.mana) + "/" + stats.maxMana;
             text.textStyle = TMP_Style.NormalStyle;
             text.fontStyle = FontStyles.Normal;
             text.color = Color.black;
@@ -51,7 +51,7 @@ public class StatCheate : MonoBehaviour
         }
         else if (type.ToLower() == "stamina")
         {
-            text.text = stats.stamina + "/" + stats.maxStamina;
+            text.text = Mathf.Round(stats.stamina) + "/" + stats.maxStamina;
             text.textStyle = TMP_Style.NormalStyle;
             text.fontStyle = FontStyles.Normal;
             text.color = Color.black;
