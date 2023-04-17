@@ -60,7 +60,7 @@ public class ProgresBar : MonoBehaviour
                 stats.reganHpColdown = delay(stats.reganHpColdown);
                 if (stats.reganHpColdown <= 0)
                 {
-                    stats.hp = regai(stats.hp, stats.reganHpAmaunt, stats.maxHp);
+                    stats.hp = regain(stats.hp, stats.reganHpAmaunt, stats.maxHp);
                 }
             }
         }
@@ -68,10 +68,11 @@ public class ProgresBar : MonoBehaviour
         {
             if ( stats.mana < stats.maxMana)
             {
-                stats.regenManaColdown = delay(stats.regenManaColdown);
+
+                stats.regenManaColdown= delay(stats.regenManaColdown);
                 if (stats.regenManaColdown <= 0)
                 {
-                    stats.mana = regai(stats.mana, stats.regenStaminaAmount, stats.maxMana);
+                    stats.mana = regain(stats.mana, stats.regenManaAmaunt, stats.maxMana);
                 }
             }
         }
@@ -79,13 +80,14 @@ public class ProgresBar : MonoBehaviour
         {
             if (stats.stamina < stats.maxStamina)
             {
+
                 stats.regenStaminaColdown = delay(stats.regenStaminaColdown);
-                if(stats.regenStaminaColdown <= 0)
+                if (stats.regenStaminaColdown <= 0)
                 {
-                    stats.stamina = regai(stats.stamina, stats.regenStaminaAmount, stats.maxStamina);
+                    stats.stamina = regain(stats.stamina, stats.regenStaminaAmount, stats.maxStamina);
                 }
             }
-            if (stats.stamina >= stats.maxStamina)
+            if (stats.stamina == stats.maxStamina)
             {
                 canvas.enabled = false;
             }
@@ -105,7 +107,7 @@ public class ProgresBar : MonoBehaviour
         return wait;
     }
 
-    float regai (float regain, float regainAmount, float max)
+    float regain (float regain, float regainAmount, float max)
     {
         if(regain <= max)
         {
