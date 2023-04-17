@@ -20,4 +20,10 @@ public class InventoryItamData : ScriptableObject
 
     public int ID;
     public int MaxStackSize;
+
+    public bool dropt;
+
+    public GameObject itemPrefab;
+
+    
 }

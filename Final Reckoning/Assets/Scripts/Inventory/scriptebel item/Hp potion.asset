@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 579b1405cfc3ea642b907a632a047d7b, type: 3}
-  m_Name: Test Item 0
+  m_Name: Hp potion
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 1511aa801ff882d448a42d149627d86f, type: 3}
   desplayName: HP potions
   description: "detta \xE4r en test potion"
   ID: 2
   MaxStackSize: 3
+  dropt: 0
+  itemPrefab: {fileID: 5763699968181751942, guid: e7031ee9b9ff1d14195d69187fc9693a, type: 3}
