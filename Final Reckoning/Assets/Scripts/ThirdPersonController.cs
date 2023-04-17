@@ -3,6 +3,8 @@
 using UnityEngine.InputSystem;
 #endif
 
+using System.Collections;
+
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
 
@@ -20,8 +22,11 @@ namespace StarterAssets
 
         private Animator anim;
 
-        [Tooltip("Sprint speed of the character in m/s")]
-        public float SprintSpeed = 5.335f;
+        // [Tooltip("Sprint speed of the character in m/s")]
+        private float SprintSpeed;
+
+        [Tooltip("Sprint percentage")]
+        public float SprintPercentage;
 
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
@@ -82,6 +87,9 @@ namespace StarterAssets
         [SerializeField] private GameObject HeadPosition;
         [SerializeField] private bool Crouch = false;
         [SerializeField] private bool CrouchDisable = false;
+        [SerializeField] private bool magicAttack = false;
+        [SerializeField] private bool magicAttackDisable = false;
+        [SerializeField] private bool MainCharacterDead = false;
         [SerializeField] private bool CanStand; 
 
         // cinemachine
@@ -107,6 +115,8 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
         private int _animIDCrouch;
+        private int _animIDMagicAttack;
+        private int _animIDMainCharacterDeath;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
@@ -147,6 +157,8 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
+
+            GroundLayers |= (1 << LayerMask.NameToLayer("Obstecal"));
             
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
@@ -156,6 +168,8 @@ namespace StarterAssets
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
+
+            SprintSpeed = MoveSpeed * SprintPercentage;
 
             AssignAnimationIDs();
 
@@ -174,6 +188,10 @@ namespace StarterAssets
             GroundedCheck();
             Move();
             Crouching();
+            MagicAttack();
+            MainCharacterDeath();
+
+            UpdateSprintSpeed();
         }
 
         private void LateUpdate()
@@ -189,6 +207,8 @@ namespace StarterAssets
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
             _animIDCrouch = Animator.StringToHash("Crouch");
+            _animIDMagicAttack = Animator.StringToHash("MagicAttack");
+            _animIDMainCharacterDeath = Animator.StringToHash("Dead");
         }
 
         private void Crouching() {
@@ -224,7 +244,84 @@ namespace StarterAssets
                     CrouchDisable = true;
                 }
             }
-        } 
+        }
+
+        private bool DeathKeyPressed = false;
+
+        private void MainCharacterDeath() {
+            if(Input.GetKey(KeyCode.P) && !DeathKeyPressed) {
+                if(_hasAnimator) {
+                    if(!MainCharacterDead) {
+                        MainCharacterDead = true;
+                        JumpHeight = 0;
+
+                        MoveSpeed = 0;
+                        SprintSpeed = 0;
+
+                        WaitDeathController(2);
+                        _animator.SetBool(_animIDMainCharacterDeath, true);
+                    }
+                }
+            } else {
+                // if(MainCharacterDead && DeathKeyPressed) {                    
+                //    _controller.center = new Vector3(0, 093f, 0);
+                //
+                //    MainCharacterDead = false;
+                //    _animator.SetBool(_animIDMainCharacterDeath, false);
+                //
+                //    DeathKeyPressed = false;
+                // }
+            }
+        }
+
+        private bool WaitStarted = false;
+
+        IEnumerator WaitMagicAttack(float seconds) {
+            WaitStarted = true;
+
+            yield return new WaitForSecondsRealtime(seconds);
+
+            if (magicAttack && CanStand)
+            {
+                magicAttack = false;
+                JumpHeight = 1.2f;
+
+                _animator.SetBool(_animIDMagicAttack, false);
+                magicAttackDisable = true;
+
+                WaitStarted = false;
+            }
+        }
+
+        IEnumerator WaitDeathController(int seconds) {            
+            yield return new WaitForSecondsRealtime(seconds);
+            DeathKeyPressed = true;
+        }
+
+        private void MagicAttack() {
+            if(Physics.Raycast(HeadPosition.transform.position, Vector3.up, 0.6f)) {
+                CanStand = false;
+            } else {
+                CanStand = true;
+            }
+
+            if(Input.GetKeyDown(KeyCode.Mouse1)) {
+                if(_hasAnimator) {
+                    if(!magicAttack) {
+                        magicAttack = true;
+                        JumpHeight = 0;
+
+                        _animator.SetBool(_animIDMagicAttack, true);
+                    }
+                }
+            } else if(!WaitStarted && magicAttack) {
+                StartCoroutine(WaitMagicAttack(0.8f));
+            }
+        }
+
+        private void UpdateSprintSpeed() {
+            SprintSpeed = MoveSpeed * SprintPercentage;
+        }
 
         private void GroundedCheck()
         {
@@ -318,7 +415,7 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                if(!MainCharacterDead) transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
@@ -355,10 +452,10 @@ namespace StarterAssets
                     _verticalVelocity = -2f;
                 }
 
-                if(CrouchDisable) _input.jump = false;
+                if(CrouchDisable || magicAttackDisable) _input.jump = false;
 
                 // Jump
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f && Crouch == false)
+                if (_input.jump && _jumpTimeoutDelta <= 0.0f && Crouch == false || _input.jump && _jumpTimeoutDelta <= 0.0f && magicAttack == false)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
@@ -370,6 +467,7 @@ namespace StarterAssets
                     }
                 } else {
                     CrouchDisable = false;
+                    magicAttackDisable = false;
                 }
 
                 // jump timeout
