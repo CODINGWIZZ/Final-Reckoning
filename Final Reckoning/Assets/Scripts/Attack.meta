@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Final Reckoning/Assets/Scripts/Attack.meta
 guid: 37efef9f1793b414ba2f3407db17895f
+========
+guid: 3553c610a9f8bd7418dad3bfdd6e191a
+>>>>>>>> Stashed changes:Final Reckoning/Assets/Character/Enemies.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

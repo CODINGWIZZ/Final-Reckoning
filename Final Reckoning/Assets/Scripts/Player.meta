@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Final Reckoning/Assets/Scripts/Player.meta
 guid: 274c7f2cba71bea49bac71880b3cd291
+========
+guid: 37efef9f1793b414ba2f3407db17895f
+>>>>>>>> Stashed changes:Final Reckoning/Assets/Scripts/Attack.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

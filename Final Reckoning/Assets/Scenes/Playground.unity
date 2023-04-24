@@ -785,6 +785,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_IceMelee_Icebiome
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: 21c1a7c374c95c24d9a7fd5c7b90220a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c1a7c374c95c24d9a7fd5c7b90220a, type: 3}
 --- !u!1 &279009988
@@ -1319,6 +1326,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_IceBrute_IceBiome
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: e009c5fb9a56dcc4bb8d7720ee2f6149, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e009c5fb9a56dcc4bb8d7720ee2f6149, type: 3}
 --- !u!1 &367096273 stripped
@@ -1429,6 +1443,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_CaveRanged_CaveBiome
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: 4b5b1812d9eacec44ab1139387cfd4a8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b5b1812d9eacec44ab1139387cfd4a8, type: 3}
 --- !u!1 &436740701
@@ -1728,6 +1749,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_GrassBrute_Grassland
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: 8593d8d34a2cf8844b6f4cd38973a949, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8593d8d34a2cf8844b6f4cd38973a949, type: 3}
 --- !u!1 &505744058
@@ -4121,6 +4149,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: FifthBoss_AgosV2
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: c60d4a843d15e974499576d81e56fcdf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60d4a843d15e974499576d81e56fcdf, type: 3}
 --- !u!1 &965802554
@@ -4299,6 +4334,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_CorruptedExperiment_Grassland
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: cead9ef654ffc78438c37776018e2dca, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cead9ef654ffc78438c37776018e2dca, type: 3}
 --- !u!1 &1002440255
@@ -5007,6 +5049,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_SwampBrute_Swampbiome
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: d158ae2def2594f458b3bde0fe2af39d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d158ae2def2594f458b3bde0fe2af39d, type: 3}
 --- !u!1 &1156521142 stripped
@@ -5809,8 +5858,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3cddef8e2b6e5a9469c13ea9e2844038, type: 3}
   m_PrefabInstance: {fileID: 1355017524}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!136 &1343021696
 CapsuleCollider:
+=======
+--- !u!64 &1343021697
+MeshCollider:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5819,6 +5873,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+<<<<<<< Updated upstream
   m_Radius: 1.0153017
   m_Height: 8.723724
   m_Direction: 1
@@ -5833,6 +5888,8 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+=======
+>>>>>>> Stashed changes
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -5849,6 +5906,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095861c07828e704bad9d673d441ea88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+=======
+--- !u!143 &1343021704
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343021693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 8.48
+  m_Radius: 1.17
+  m_SlopeLimit: 45
+  m_StepOffset: 0.25
+  m_SkinWidth: 0.02
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 4.27, z: 0}
+--- !u!114 &1343021705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343021693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909d917d73a63f940ac158d02e936645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  canPush: 0
+  strength: 1.1
+>>>>>>> Stashed changes
 --- !u!1001 &1355017524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5878,7 +5973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3cddef8e2b6e5a9469c13ea9e2844038, type: 3}
       propertyPath: m_LocalPosition.y
+<<<<<<< Updated upstream
       value: 0
+=======
+      value: 0.01
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3cddef8e2b6e5a9469c13ea9e2844038, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5920,6 +6019,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: LastBoss_BOB
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: 3cddef8e2b6e5a9469c13ea9e2844038, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+    - target: {fileID: 8879528566716807029, guid: 3cddef8e2b6e5a9469c13ea9e2844038, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.64
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cddef8e2b6e5a9469c13ea9e2844038, type: 3}
 --- !u!1001 &1402827283
@@ -6581,11 +6691,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7b7613b316d3a074ba3d59689f78cb32, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+<<<<<<< Updated upstream
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7b7613b316d3a074ba3d59689f78cb32, type: 3}
+      propertyPath: m_Name
+      value: Enemy_CaveHollow_Cavebiome
+=======
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7b7613b316d3a074ba3d59689f78cb32, type: 3}
       propertyPath: m_Name
       value: Enemy_CaveHollow_Cavebiome
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 7b7613b316d3a074ba3d59689f78cb32, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b7613b316d3a074ba3d59689f78cb32, type: 3}
 --- !u!1 &1585558161
@@ -8333,6 +8454,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_SwampHag_Swampbiome
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 5866666021909216657, guid: 0f10a08ca9cf55e4f901ae4fc98eac70, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b4d369fc465c25b4aa3eee5df0ca1953, type: 2}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f10a08ca9cf55e4f901ae4fc98eac70, type: 3}
 --- !u!1001 &1949411148

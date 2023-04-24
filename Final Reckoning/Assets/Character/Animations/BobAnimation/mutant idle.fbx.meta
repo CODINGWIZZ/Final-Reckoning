@@ -1,33 +1,12 @@
 fileFormatVersion: 2
-<<<<<<<< Updated upstream:Final Reckoning/Assets/Character/Enemies/Enemy_IceMelee_Icebiome.fbx.meta
-guid: 21c1a7c374c95c24d9a7fd5c7b90220a
-========
-guid: ee5f1ac9757e45f4aad89c0b0808b9e6
->>>>>>>> Stashed changes:Final Reckoning/Assets/Character/Animations/BobAnimation/left turn 45.fbx.meta
+guid: 84a908b6e2ad3a44eacb3f2111a6371f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-<<<<<<<< Updated upstream:Final Reckoning/Assets/Character/Enemies/Enemy_IceMelee_Icebiome.fbx.meta
-      74: -4791504522942941401
-    second: Armature|Armature|mixamo.com|Layer0
-  - first:
-      74: 6165553400957861818
-    second: Armature|Armature|mixamo.com|Layer0.001
-  - first:
-      74: 3591740854655688942
-    second: Armature|Armature|mixamo.com|Layer0.002
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: 6d93dc0b0479db94598e48fa5627d103, type: 2}
-========
       74: -203655887218126122
     second: mixamo.com
   externalObjects: {}
->>>>>>>> Stashed changes:Final Reckoning/Assets/Character/Animations/BobAnimation/left turn 45.fbx.meta
   materials:
     materialImportMode: 2
     materialName: 0
@@ -48,7 +27,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -115,13 +94,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
