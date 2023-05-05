@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaracterStats : MonoBehaviour
+public class HPBarPos : MonoBehaviour
 {
+    public Transform enemy;
+    public Transform barTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,6 @@ public class CaracterStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        barTransform.position = enemy.position;
     }
 }

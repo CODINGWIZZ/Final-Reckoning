@@ -33,7 +33,7 @@ public class InvnetoryUIControler : MonoBehaviour
             chestPanal.gameObject.SetActive(false);
         }
 
-        if (playerBackpackPanal.gameObject.activeInHierarchy && Keyboard.current.escapeKey.wasPressedThisFrame) 
+        if (playerBackpackPanal.gameObject.activeInHierarchy && Keyboard.current.iKey.wasPressedThisFrame)
         {
             playerBackpackPanal.gameObject.SetActive(false);
         }

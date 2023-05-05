@@ -98,7 +98,7 @@ public class ProgresBar : MonoBehaviour
         }
     }
 
-    float delay (float wait)
+    public float delay (float wait)
     {
         if (wait > 0)
         {
@@ -107,7 +107,7 @@ public class ProgresBar : MonoBehaviour
         return wait;
     }
 
-    float regain (float regain, float regainAmount, float max)
+    public float regain (float regain, float regainAmount, float max)
     {
         if(regain <= max)
         {
