@@ -53,17 +53,17 @@ public class EnemyView : MonoBehaviour
         {
 
             Transform targert = targetInViewRadius[i].transform;
-            Vector3 dirToTarget = (targert.position - enemyTransform.position).normalized;
-            if (Vector3.Distance(enemyTransform.forward, dirToTarget) < viewRadius)
+            Vector3 dirToTarget = (targert.position - enemyTransform.parent.position).normalized;
+            if (Vector3.Distance(enemyTransform.parent.position, target.position) < viewRadius)
             {
-                float dstToTarget = Vector3.Distance(enemyTransform.position, targert.position);
+                float dstToTarget = Vector3.Distance(enemyTransform.parent.position, targert.position);
 
-                Physics.SphereCast(enemyTransform.position, viewRadius, dirToTarget, out hit ,dstToTarget ,obstecalMask);
-                //Physics.Raycast(enemyTransform.position, dirToTarget, dstToTarget, obstecalMask);
+                //Physics.SphereCast(enemyTransform.position, viewRadius, dirToTarget, out hit ,viewRadius ,obstecalMask);
+                Physics.Raycast(enemyTransform.position, dirToTarget, dstToTarget, obstecalMask);
                 //Physics.BoxCast(enemyTransform.position, viewArea, dirToTarget, enemyTransform.rotation, dstToTarget, obstecalMask);
 
 
-                if (!Physics.SphereCast(enemyTransform.position, viewRadius, dirToTarget, out hit, dstToTarget, obstecalMask))
+                if (!Physics.Raycast(enemyTransform.position, dirToTarget, out hit, dstToTarget, obstecalMask))
                 {
                     visebelTarget.Add(targert);
                     targetPos = new Vector3(target.position.x, target.position.y, target.position.z);

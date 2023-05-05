@@ -16,14 +16,13 @@ public class EnemyMovment : MonoBehaviour
     private void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
+        transformSpawn = transform.parent;
     }
 
     public void Update()
     {
         GameObject enemy0 = GameObject.Find(enemyParent);
         EnemyView enemyView1 = enemy0.GetComponent<EnemyView>();
-        
-
 
         if (enemyView1.seeTarget == true)
         {
