@@ -17,8 +17,9 @@ public class enemyHP : MonoBehaviour
     void Start()
     {
         hp = maxHP;
-            delay = transform.parent.gameObject.GetComponent<SpawnEnemy>();
+        delay = transform.parent.gameObject.GetComponent<SpawnEnemy>();
     }
+
     public float Wait(float wait)
     {
         if (wait > 0)

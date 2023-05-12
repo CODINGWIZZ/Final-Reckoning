@@ -30,8 +30,8 @@ public class EnemyView : MonoBehaviour
 
     void Start()
     {
+        //viewArea = new Vector3(viewRadius, viewRadius, viewRadius);
         StartCoroutine("FindTargetWhithDelay", .2);
-        viewArea = new Vector3(viewRadius, viewRadius, viewRadius);
     }
 
     IEnumerator FindTargetWhithDelay(float delay)
@@ -51,17 +51,16 @@ public class EnemyView : MonoBehaviour
 
         for (int i = 0; i < targetInViewRadius.Length; i++)
         {
-
             Transform targert = targetInViewRadius[i].transform;
-            Vector3 dirToTarget = (targert.position - enemyTransform.parent.position).normalized;
-            if (Vector3.Distance(enemyTransform.parent.position, target.position) < viewRadius)
+            Vector3 dirToTarget = (targert.position - enemyTransform.position).normalized;
+
+            if (Vector3.Distance(enemyTransform.forward, dirToTarget) < viewRadius)
             {
-                float dstToTarget = Vector3.Distance(enemyTransform.parent.position, targert.position);
+                float dstToTarget = Vector3.Distance(enemyTransform.position, targert.position);
 
-                //Physics.SphereCast(enemyTransform.position, viewRadius, dirToTarget, out hit ,viewRadius ,obstecalMask);
                 Physics.Raycast(enemyTransform.position, dirToTarget, dstToTarget, obstecalMask);
-                //Physics.BoxCast(enemyTransform.position, viewArea, dirToTarget, enemyTransform.rotation, dstToTarget, obstecalMask);
 
+                Debug.Log("in range");
 
                 if (!Physics.Raycast(enemyTransform.position, dirToTarget, out hit, dstToTarget, obstecalMask))
                 {

@@ -13,6 +13,8 @@ public class EnemyMovment : MonoBehaviour
 
     private NavMeshAgent navMesh;
 
+    public float stopDistans;
+
     private void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
@@ -24,12 +26,12 @@ public class EnemyMovment : MonoBehaviour
         GameObject enemy0 = GameObject.Find(enemyParent);
         EnemyView enemyView1 = enemy0.GetComponent<EnemyView>();
 
-        if (enemyView1.seeTarget == true)
+        if (enemyView1.seeTarget == true && Vector3.Distance(targetPos, transform.position)> stopDistans)
         {
             targetPos = enemyView1.targetPos;
             navMesh.destination = targetPos;
         }
-        if (enemyView1.seeTarget == false)
+        else if (enemyView1.seeTarget == false)
         {
             targetPos = transformSpawn.position;
             navMesh.destination = targetPos;

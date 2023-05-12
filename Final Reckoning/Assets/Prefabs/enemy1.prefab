@@ -120,7 +120,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7206184165918552632}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformSpawn: {fileID: 0}
   enemyParent: enemy1Parent
+  stopDistans: 1
 --- !u!136 &7206184165918552634
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -246,7 +247,6 @@ MonoBehaviour:
   hpRegenAmount: 1
   hpRegenCurrentDelay: 10
   hpRegenStartDelay: 10
-  progresBar: {fileID: 0}
   delay: {fileID: 0}
 --- !u!1 &7206184167395409004
 GameObject:

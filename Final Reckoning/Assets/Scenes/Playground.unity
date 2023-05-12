@@ -1504,7 +1504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc6b3df274b0a04e9422033aea76797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 7.75
+  viewRadius: 8.02
   targetMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1512,7 +1512,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 3893294199639930361}
-  enemyTransform: {fileID: 1585558162}
+  enemyTransform: {fileID: 7206184165918552635, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
   seeTarget: 0
   targetPos: {x: 0, y: 0, z: 0}
   viewArea: {x: 0, y: 0, z: 0}
@@ -8210,6 +8210,7 @@ MonoBehaviour:
   progresBar: {fileID: 1300392323}
   enemy: {fileID: 7206184165918552632, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
   deth: 0
+  enemyView: {fileID: 0}
 --- !u!1001 &1570100847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13369,10 +13370,6 @@ PrefabInstance:
       propertyPath: delay
       value: 
       objectReference: {fileID: 1564561389}
-    - target: {fileID: 7206184165918552625, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
-      propertyPath: progresBar
-      value: 
-      objectReference: {fileID: 1300392323}
     - target: {fileID: 7206184165918552632, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
       propertyPath: m_Name
       value: enemy1

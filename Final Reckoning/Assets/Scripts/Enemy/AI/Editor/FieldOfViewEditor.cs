@@ -10,7 +10,7 @@ public class FieldOfViewEditor : Editor
     {
         EnemyView fov = (EnemyView)target;
         Handles.color = Color.white;
-        Handles.RadiusHandle(Quaternion.identity, fov.enemyTransform.parent.position, fov.viewRadius, false);
+        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.viewRadius);
 
         Handles.color = Color.red;
         foreach (Transform visebelTarget in fov.visebelTarget)

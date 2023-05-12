@@ -9,6 +9,7 @@ public class SpawnEnemy : MonoBehaviour
     public ProgresBar progresBar;
     public GameObject enemy;
     public bool deth = false;
+    public EnemyView enemyView;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class SpawnEnemy : MonoBehaviour
             spawnDelay = progresBar.delay(spawnDelay);
             if(spawnDelay <= 0)
             {
-                Instantiate(enemy, transform);
+                enemyView.enemyTransform = Instantiate(enemy, transform).transform;
                 deth = false;
             }
         }
