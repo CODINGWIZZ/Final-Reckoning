@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyView : MonoBehaviour
 {
-
     public float viewRadius;
 
     public LayerMask targetMask;
@@ -60,7 +59,6 @@ public class EnemyView : MonoBehaviour
 
                 Physics.Raycast(enemyTransform.position, dirToTarget, dstToTarget, obstecalMask);
 
-                Debug.Log("in range");
 
                 if (!Physics.Raycast(enemyTransform.position, dirToTarget, out hit, dstToTarget, obstecalMask))
                 {

@@ -26,12 +26,16 @@ public class EnemyMovment : MonoBehaviour
         GameObject enemy0 = GameObject.Find(enemyParent);
         EnemyView enemyView1 = enemy0.GetComponent<EnemyView>();
 
-        if (enemyView1.seeTarget == true && Vector3.Distance(targetPos, transform.position)> stopDistans)
+        if (enemyView1.seeTarget == true)
         {
-            targetPos = enemyView1.targetPos;
-            navMesh.destination = targetPos;
+            if(Vector3.Distance(targetPos, transform.position) > stopDistans)
+            {
+                Debug.Log(Vector3.Distance(targetPos, transform.position));
+                targetPos = enemyView1.targetPos;
+                navMesh.destination = targetPos;
+            }
         }
-        else if (enemyView1.seeTarget == false)
+        else /*if (enemyView1.seeTarget == false)*/
         {
             targetPos = transformSpawn.position;
             navMesh.destination = targetPos;

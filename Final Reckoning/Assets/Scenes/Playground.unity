@@ -6656,7 +6656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5475875840202900849, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5475875840202900849, guid: 09aade0ecefd01e4b8f7661acf64f5c2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8210,7 +8210,7 @@ MonoBehaviour:
   progresBar: {fileID: 1300392323}
   enemy: {fileID: 7206184165918552632, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
   deth: 0
-  enemyView: {fileID: 0}
+  enemyView: {fileID: 466793976}
 --- !u!1001 &1570100847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13417,6 +13417,14 @@ PrefabInstance:
     - target: {fileID: 7206184165918552635, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206184165918552636, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 7206184165918552639, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
+      propertyPath: stopDistans
+      value: 2.07
       objectReference: {fileID: 0}
     - target: {fileID: 7206184165918552639, guid: 0f614205941482e4ab0992766478d4fb, type: 3}
       propertyPath: transformSpawn
